@@ -12,15 +12,6 @@ import (
 
 type Weather struct{}
 
-type IPInfo struct {
-	Status string `json:"status"`
-	Data   []IP   `json:"data"`
-}
-
-type IP struct {
-	Location string `json:"location"`
-}
-
 type WeatherRes struct {
 	City    string        `json:"city"`
 	Weather []WeatherInfo `json:"weather"`
