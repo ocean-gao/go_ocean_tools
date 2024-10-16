@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/fatih/color"
-	"github.com/ocean-gao/go_ocean_tools/utils"
+	"github.com/ocean-gao/go_ocean_tools/tools"
 	"github.com/spf13/cobra"
 )
 
@@ -22,12 +22,14 @@ var rootCmd = &cobra.Command{
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	Run: func(cmd *cobra.Command, args []string) {
+		// 判断是否有 --version 命令选项
 		version, _ := cmd.Flags().GetBool("version")
 		if version {
-			color.Green("当前版本号: " + utils.GetVersion())
+			color.Green("当前版本号: " + tools.GetVersion())
 			return
 		}
 
+		// 默认执行 help 子命令
 		if len(args) == 0 {
 			err := cmd.Help()
 			if err != nil {
@@ -41,7 +43,10 @@ var rootCmd = &cobra.Command{
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
+	// 注册命令选项 --versin
 	rootCmd.Flags().BoolP("version", "v", false, "当前版本号")
+
+	// 执行命令程序 (内部会自动进行命令参数和选项解析, 进而执行对应的主命令或子命令)
 	err := rootCmd.Execute()
 	if err != nil {
 		os.Exit(1)
