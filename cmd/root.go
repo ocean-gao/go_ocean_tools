@@ -52,7 +52,7 @@ var rootCmd = &cobra.Command{
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
-	// 注册命令选项 --versin
+	// 注册主命令选项 --versin
 	rootCmd.Flags().BoolP("version", "v", false, "当前版本号")
 
 	// 执行命令程序 (内部会自动进行命令参数和选项解析, 进而执行对应的主命令或子命令)
