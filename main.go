@@ -1,7 +1,11 @@
+/*
+Copyright © 2024 NAME HERE <EMAIL ADDRESS>
+*/
 package main
 
 import (
 	"github.com/fatih/color"
+	"github.com/ocean-gao/go_ocean_tools/cmd"
 )
 
 var LogoTips = `
@@ -14,4 +18,6 @@ func main() {
 	colorPrint.Add(color.FgGreen)
 
 	_, _ = colorPrint.Println(LogoTips)
+
+	cmd.Execute()
 }
