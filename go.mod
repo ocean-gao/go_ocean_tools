@@ -3,6 +3,7 @@ module github.com/ocean-gao/go_ocean_tools
 go 1.22.3
 
 require (
+	github.com/atotto/clipboard v0.1.4
 	github.com/fatih/color v1.17.0
 	github.com/gizak/termui/v3 v3.1.0
 	github.com/spf13/cobra v1.8.1

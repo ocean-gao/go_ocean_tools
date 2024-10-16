@@ -18,7 +18,6 @@ var rootCmd = &cobra.Command{
 	Short: "开发小工具",
 	Long: `基于 go 开发的 小工具集合
    - go_ocean_tools weather 查询天气
-   - go_ocean_tools mobile 手机归属地查询
    - go_ocean_tools md5 md5 小工具
    - go_ocean_tools base64 base64 小工具
    - go_ocean_tools time  获取当前时间戳
