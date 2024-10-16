@@ -8,6 +8,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var LogoTips = `
+欢迎使用 go_ocean_tools, 请按照下面的指示操作。
+`
+
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "go_ocean_tools",
@@ -25,12 +29,18 @@ var rootCmd = &cobra.Command{
 		// 判断是否有 --version 命令选项
 		version, _ := cmd.Flags().GetBool("version")
 		if version {
-			color.Green("当前版本号: " + tools.GetVersion())
+			color.Green(tools.GetVersion())
 			return
 		}
 
 		// 默认执行 help 子命令
 		if len(args) == 0 {
+			// 实例化一个新的 color 对象，设置前景色为绿色，文字加粗
+			colorPrint := color.New(color.Bold)
+			colorPrint.Add(color.FgGreen)
+
+			_, _ = colorPrint.Println(LogoTips)
+
 			err := cmd.Help()
 			if err != nil {
 				return
